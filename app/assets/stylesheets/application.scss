@@ -6,10 +6,10 @@
 $cormorant: 'Cormorant Garamond', serif;
 $spinnaker: 'Spinnaker', sans-serif;
 $accent_color: #FF9900;
-$primary_color: #0000ff;
+$primary_color: #2E3192;
 
 body {
-  padding: 3rem 0;
+  padding: 3rem 0 0 0;
   color: #5a5a5a;
   font-family: $spinnaker;
   font-size: 16px;
@@ -68,11 +68,16 @@ main {
 	top: 130px;
 }
 .navbar {
-	background-image: url("navbg2.jpg");
-  background-repeat: repeat-y;
+	/*background-image: url("navbg2.jpg");
+  	background-repeat: repeat-y;*/
+
+  	.active {
+  		border: 1px solid $primary_color;
+  	}
 }
 .nav-item {
-	padding-left: 15px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
 
@@ -81,8 +86,9 @@ main {
   margin-bottom: 30px;
 }
 .carousel-caption {
-  bottom: 0;
+  bottom: 15px;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4)
 }
 .carousel-item {
   height: 32rem;
@@ -99,7 +105,7 @@ main {
 	font-size: 70px;
 	line-height: 100px;
 	letter-spacing: -1px;
-	color: $primary_color;
+	color: white;
 }
 
 @media (min-width: 40em) {
@@ -133,18 +139,22 @@ main {
 }
 
 
+.img-thumbnail:hover {
+	border: 1px solid blue;
+}
 
 /* --------------------------------
 MAJOR BODY [LEFTER AND RIGHTER]
 ----------------------------------*/
 .major-body {
+	min-height: 400px;
 
 	.row {
 		padding: 25px 0;
 	}
 }
 .lefter {
-
+	margin-bottom: 30px;
 }
 .righter {
 	
@@ -152,6 +162,12 @@ MAJOR BODY [LEFTER AND RIGHTER]
 
 
 .large-footer {
-	background-color: #1a86Fb;
-  color: white;
+	background-color: $primary_color;
+  	color: white;
+  	font-size: 14px;
+  	line-height: 25px;
+
+  	a {
+  		color: white;
+  	}
 }

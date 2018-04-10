@@ -11,7 +11,7 @@
 <body>
 
 	<header>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
 			<div class="container">
 				<%= link_to image_tag("logo.png", alt: "Logo"), home_path, class: "navbar-brand" %>
 				
@@ -21,7 +21,7 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/home" || request.env['PATH_INFO'] == "/" %>">
-							<%= link_to fa_icon("home"), home_path, class: "nav-link", title: "Home" %>
+							<%= link_to "Home", home_path, class: "nav-link" %>
 						</li>
 						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/services" %>">
 							<%= link_to "Services", services_path, class: "nav-link" %>
@@ -51,12 +51,40 @@
 
 		<%= yield %>
 
-		<div class="container-fluid large-footer">
-			larger footer here
+		<div class="container-fluid large-footer largepadding">
+			<div class="row">
+				<div class="col-sm-3">
+					<h3>Important Links</h3>
+					<p>&bull; <a target="_blank" href="http://www.ura.go.ug/">URA - Uganda Revenue Authority</a></p>
+					<p>&bull; <a target="_blank" href="http://www.uffa.co.ug/">UFFA - Uganda Freight Forwarders Association</a></p>
+				</div>				
+				<div class="col-sm-3">
+					<h3>Our Partners</h3>
+					<p>&bull; Logwin Air + Sea</p>
+					<p>&bull; Global Transport Organisation - GTO</p>
+					<p>&bull; Brucargo Airfreight N.V</p>
+				</div>				
+				<div class="col-sm-3">
+					<h3>Address</h3>
+					<p>
+						Suite 4,  1st Floor Kagga House<br>
+						Old Portbell Road, Bugolobi<br>
+						P.O. Box 72023,<br>
+						Kampala, Uganda
+					</p>
+				</div>				
+				<div class="col-sm-3">
+					<h3>Contact</h3>
+					<p><%= fa_icon "phone" %> <a href="tel:+256414221092">+256-(0414) 221 092</a></p>
+					<p><%= fa_icon "fax" %> +256-(0414) 221 146</p>
+					<p><%= fa_icon "envelope" %> <a href="mailto:administration@jmfreight.co.ug">administration@jmfreight.co.ug</a></p>
+				</div>				
+			</div>
 		</div>
 	</main>
 
 	<footer>
+		&copy; <%= Time.new.year %> All Rights Reserved. JM Freight Services
 		<% if current_user %>
 			<%= link_to "Log out", destroy_user_session_path, method: :delete %>
 		<% end %>

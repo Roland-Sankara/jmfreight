@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	before_action :set_title
 
 	def set_title 
-		@page_title = "JM Freight"
+		@page_title = "JM Freight Services"
 	end
 
 end
