@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= @page_title %></title>
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<div class="container">
+				<%= link_to image_tag("logo.png", alt: "Logo"), home_path, class: "navbar-brand" %>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/home" || request.env['PATH_INFO'] == "/" %>">
+							<%= link_to fa_icon("home"), home_path, class: "nav-link", title: "Home" %>
+						</li>
+						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/services" %>">
+							<%= link_to "Services", services_path, class: "nav-link" %>
+						</li>
+						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/about" %>">
+							<%= link_to "About", about_path, class: "nav-link" %>
+						</li>
+						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/contact" %>">
+							<%= link_to "Contact", contact_path, class: "nav-link" %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+
+	<main role="main">
+
+		<% if !notice.nil? || !alert.nil? %>
+			<%= tag.div class: "alert alert-success alert-dismissible centered alert-msg" do %>
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+		  		<%= notice %>
+		  		<%= alert %>
+			<% end %>
+		<% end %>
+
+		<%= yield %>
+
+		<div class="container-fluid large-footer">
+			larger footer here
+		</div>
+	</main>
+
+	<footer>
+		<% if current_user %>
+			<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+		<% end %>
+	</footer>
+	
+</body> 
+</html>
