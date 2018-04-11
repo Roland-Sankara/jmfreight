@@ -10,59 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409145748) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "blogs", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "emails", force: :cascade do |t|
-    t.string "fullname"
-    t.string "email"
-    t.string "subject"
-    t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.date "event_date"
-    t.string "event_location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "image_gallery_groups", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "image_gallery_items", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.string "image_url"
-    t.string "image_gallery_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "latest_news_articles", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.string "image_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20180401164500) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -73,30 +21,11 @@ ActiveRecord::Schema.define(version: 20180409145748) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "roles"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "video_gallery_groups", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "video_gallery_items", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.string "image_url"
-    t.string "video_url"
-    t.string "video_gallery_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
