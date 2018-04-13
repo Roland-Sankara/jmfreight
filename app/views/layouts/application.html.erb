@@ -6,9 +6,11 @@
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<link rel="icon" href="<%= image_path('favicon.png') %>">
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar">
 
 	<header>
 		<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
@@ -29,8 +31,8 @@
 						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/about" %>">
 							<%= link_to "About", about_path, class: "nav-link" %>
 						</li>
-						<li class="nav-item <%= "active".html_safe if request.env['PATH_INFO'] == "/contact" %>">
-							<%= link_to "Contact", contact_path, class: "nav-link" %>
+						<li class="nav-item">
+							<%= link_to "Contact", "#{home_path}#large-footer", class: "nav-link" %>
 						</li>
 					</ul>
 				</div>
@@ -51,19 +53,8 @@
 
 		<%= yield %>
 
-		<div class="container-fluid large-footer largepadding">
+		<div class="container-fluid large-footer largepadding" id="large-footer">
 			<div class="row">
-				<div class="col-sm-3">
-					<h3>Important Links</h3>
-					<p>&bull; <a target="_blank" href="http://www.ura.go.ug/">URA - Uganda Revenue Authority</a></p>
-					<p>&bull; <a target="_blank" href="http://www.uffa.co.ug/">UFFA - Uganda Freight Forwarders Association</a></p>
-				</div>				
-				<div class="col-sm-3">
-					<h3>Our Partners</h3>
-					<p>&bull; Logwin Air + Sea</p>
-					<p>&bull; Global Transport Organisation - GTO</p>
-					<p>&bull; Brucargo Airfreight N.V</p>
-				</div>				
 				<div class="col-sm-3">
 					<h3>Address</h3>
 					<p>
@@ -78,13 +69,24 @@
 					<p><%= fa_icon "phone" %> <a href="tel:+256414221092">+256-(0414) 221 092</a></p>
 					<p><%= fa_icon "fax" %> +256-(0414) 221 146</p>
 					<p><%= fa_icon "envelope" %> <a href="mailto:administration@jmfreight.co.ug">administration@jmfreight.co.ug</a></p>
+				</div>	
+				<div class="col-sm-3">
+					<h3>Important Links</h3>
+					<p>&bull; <a target="_blank" href="http://www.ura.go.ug/">URA - Uganda Revenue Authority</a></p>
+					<p>&bull; <a target="_blank" href="http://www.uffa.co.ug/">UFFA - Uganda Freight Forwarders Association</a></p>
 				</div>				
+				<div class="col-sm-3">
+					<h3>Our Partners</h3>
+					<p>&bull; Logwin Air + Sea</p>
+					<p>&bull; Global Transport Organisation - GTO</p>
+					<p>&bull; Brucargo Airfreight N.V</p>
+				</div>							
 			</div>
 		</div>
 	</main>
 
 	<footer>
-		&copy; <%= Time.new.year %> All Rights Reserved. JM Freight Services
+		&copy; <%= Time.new.year %> All Rights Reserved. JM Freight Services Ltd.
 		<% if current_user %>
 			<%= link_to "Log out", destroy_user_session_path, method: :delete %>
 		<% end %>

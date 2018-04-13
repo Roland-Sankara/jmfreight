@@ -52,6 +52,9 @@ hr {
 .white {
 	color: white;
 }
+.black {
+  color: #000;
+}
 .borders {
 	border: 1px solid #ddd;
 	border-radius: 5px;
@@ -85,7 +88,7 @@ main {
 .carousel {
   margin-bottom: 30px;
 }
-.carousel-caption {
+.carousel .carousel-caption {
   bottom: 15px;
   z-index: 10;
   background-color: rgba(0, 0, 0, 0.4)
@@ -138,7 +141,22 @@ main {
 	margin-bottom: 30px;
 }
 
+.services-section {
 
+  .rounded-circle {
+    width: 200px;
+    height: 200px;
+  }  
+}
+.caption {
+    text-align: center;
+    font-size: 15px;
+    padding: 0;
+    background-color: #777;
+    color: white;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
 .img-thumbnail:hover {
 	border: 1px solid blue;
 }
@@ -155,6 +173,17 @@ MAJOR BODY [LEFTER AND RIGHTER]
 }
 .lefter {
 	margin-bottom: 30px;
+
+  img {
+    width: 100%;
+  }
+  .description p {
+    font-size: 22px;
+    line-height: 45px;
+  }
+  .col-sm-12 {
+    margin-bottom: 20px;
+  }
 }
 .righter {
 	
@@ -170,4 +199,8 @@ MAJOR BODY [LEFTER AND RIGHTER]
   	a {
   		color: white;
   	}
+}
+
+footer {
+  padding: 0 10px;
 }

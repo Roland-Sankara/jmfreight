@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @page_title = "JMFreight | About"
   end
 
-  def contact
-    @page_title = "JMFreight | Contact"
-  end
+  # def contact
+  #   @page_title = "JMFreight | Contact"
+  # end
 end
